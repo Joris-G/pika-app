@@ -11,7 +11,7 @@ import { AuthService } from '../../_services/auth.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent implements OnInit, OnDestroy {
   public loginForm: FormGroup;
   private login$: Observable<IUser>;
   constructor(
@@ -21,12 +21,16 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: new FormControl('', Validators.required),
       password: new FormControl()
     }) as ILoginForm;
 
+  }
+
+  ngOnDestroy(): void {
+    this.loginForm.reset();
   }
 
   onSubmit(): void {

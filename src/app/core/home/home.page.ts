@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonMenu } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  @ViewChild('homeMenu') homeMenu: IonMenu;
+  constructor() { }
+  ngOnInit(): void {
 
-  constructor() {}
+  }
+  ionViewDidEnter() {
+    this.homeMenu.setOpen(true, false);
+  }
 
 }

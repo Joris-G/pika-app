@@ -16,3 +16,7 @@ export class IProcess {
   processCreatedBy: IUser;
   processUpdatedBy: IUser;
 }
+
+export interface ICreateProcess {
+  article: string;
+}

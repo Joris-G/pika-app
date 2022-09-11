@@ -23,7 +23,6 @@ export class ProcessesComponent implements OnInit {
     const createProcessForm = this.modalCtrl.create({ component: CreateProcessComponent });
     createProcessForm.then((elem) => {
       elem.present();
-
     });
   }
 }

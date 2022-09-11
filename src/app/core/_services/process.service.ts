@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IProcess } from '../_interfaces/process.int';
+import { ICreateProcess, IProcess } from '../_interfaces/process.int';
 import { environment as env } from 'src/environments/environment';
 
 @Injectable({
@@ -15,5 +15,9 @@ export class ProcessService {
 
   getProcesses(): Observable<IProcess[]> {
     return this.http.get<IProcess[]>(`${env.apiBaseUrl}processes/`);
+  }
+
+  createProcess(process: ICreateProcess) {
+    return this.http.post<any>(`${env.apiBaseUrl}processes/`, process);
   }
 }

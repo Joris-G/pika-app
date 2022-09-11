@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { IonModal } from '@ionic/angular';
+import { IonModalCustomEvent } from '@ionic/core';
+import { ProcessService } from 'src/app/core/_services/process.service';
 
 @Component({
   selector: 'app-create-process',
@@ -6,12 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-process.component.scss'],
 })
 export class CreateProcessComponent implements OnInit {
+  public processForm: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private processService: ProcessService
+  ) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.processForm = this.fb.group({
+      article: new FormControl('', Validators.required)
+    });
+  }
 
-  ngOnInit() { }
   submitProcess() {
-
+    this.processService.createProcess(this.processForm.value)
+      .subscribe(resp => {
+        if (resp) {
+          // this.
+        }
+      });
   }
 
 }
