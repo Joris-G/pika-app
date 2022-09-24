@@ -1,25 +1,40 @@
 import { Injectable } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorHandlingService {
-  private message: string;
+  constructor(
+    private alertCtrl: AlertController
+  ) { }
 
-  constructor() { }
-  handleError(params: any, err: any) {
+  async handleError(params: any, err: any) {
+    let errorType: string;
     switch (err.status) {
       case 500:
-        // TODO créer le message type popup à l'utilisateur
-        this.message = 'Erreur interne au serveur';
+        errorType = 'Erreur interne au serveur';
         break;
       case 404:
-        this.message = 'Page introuvable';
+        errorType = 'Page introuvable';
         break;
       default:
         break;
     }
-    return throwError(this.message);
+    // TODO créer le message type popup à l'utilisateur
+    const alert = await this.alertCtrl.create({
+      header: `Erreur ${err.status} : ${errorType}`,
+      message: `${params.message}`,
+      buttons: [{
+        text: 'OK',
+        role: 'destructive',
+        handler: (value) => {
+          console.log(value);
+          return true;
+        }
+      }]
+    });
+    alert.present();
   }
 }

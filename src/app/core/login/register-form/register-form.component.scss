@@ -1,0 +1,16 @@
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // background-color: hsl(0, 0%, 45%);
+  border-radius: 10px;
+  box-shadow: 4px;
+  padding: 20px 10px;
+  font-size: large;
+}
+
+ion-item{
+  --background:none;
+  --border-color: white;
+  --color: var(--ion-color-light);
+}

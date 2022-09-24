@@ -3,9 +3,9 @@ describe('Login E2E tests', () => {
     // cy.viewport('iphone-6+');
     cy.visit('/login');
     cy.url().should('include', '/login');
+    cy.get('form').should('be.visible');
   });
   it('log when user is good', () => {
-    cy.get('form').should('be.visible');
     // cy.get('ion-button[type="submit"]').should('be.disabled');
     cy.get('[formcontrolname="username"]')
       .type('j.grangier');

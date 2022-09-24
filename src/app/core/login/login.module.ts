@@ -8,6 +8,9 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { SwiperModule } from 'swiper/angular';
+import { RegisterService } from './register.service';
 
 @NgModule({
   imports: [
@@ -15,11 +18,16 @@ import { LoginFormComponent } from './login-form/login-form.component';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    LoginPageRoutingModule,
+    SwiperModule
   ],
   declarations: [
     LoginFormComponent,
-    LoginPage
+    LoginPage,
+    RegisterFormComponent,
+  ],
+  providers: [
+    RegisterService
   ]
 })
 export class LoginPageModule { }

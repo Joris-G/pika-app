@@ -10,8 +10,14 @@
     <ion-input color="light" required formControlName="password" type="password" (keyup.enter)="onSubmit()"></ion-input>
   </ion-item>
   <ion-button block color="primary" type="submit" [disabled]="loginForm.invalid">
-    Se connecter
+    GO !
   </ion-button>
+  <!-- <div class="btn-test" (click)="onSubmit()">
+    <ion-text color="light">
+      GO !
+    </ion-text>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </div> -->
   <ion-item *ngIf="loginForm.errors" lines="none">
     <ion-text color="danger" class="form-error">
       Nom d'utilisateur ou mot de passe invalide

@@ -47,7 +47,6 @@ export class AuthService {
   }
 
   getAuthorizationToken() {
-    console.log(sessionStorage.getItem('id_token'));
     return sessionStorage.getItem('id_token');
   }
 

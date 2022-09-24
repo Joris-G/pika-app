@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="subOpeForm" (ngSubmit)="submitSubOpeForm()">
+    <ion-item>
+      <ion-label position="floating">Désignation sous opération <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+    <ion-toolbar>
+      <ion-button slot=end block color="primary" type="submit" [disabled]="subOpeForm.invalid">
+        Valider
+      </ion-button>
+    </ion-toolbar>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button slot=end block color="primary" type="submit" [disabled]="subOpeForm.invalid">
+      Valider
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

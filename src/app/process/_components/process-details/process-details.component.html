@@ -1,0 +1,43 @@
+<div class="process-details" *ngIf="process$ | async as process">
+  <div class="article-infos">
+    <div>
+      <ion-label>Article : </ion-label>
+      <ion-label>{{process.article}}</ion-label>
+    </div>
+    <div>
+      <ion-label>Créé le : </ion-label>
+      <ion-label>{{process.createdAt | dateTime }}</ion-label>
+    </div>
+    <div>
+      <ion-label>Créé par : </ion-label>
+      <ion-label>{{process.processCreatedById}}</ion-label>
+    </div>
+    <div>
+      <ion-label>Modifié le : </ion-label>
+      <ion-label>{{process.updatedAt | dateTime}}</ion-label>
+    </div>
+    <div *ngIf="process.deletedAt">
+      <ion-label>Supprimé le : </ion-label>
+      <ion-label>{{process.deletedAt | dateTime}}</ion-label>
+    </div>
+  </div>
+  <div class="process-status">
+    <div>
+      <ion-label>Status : </ion-label>
+      <ion-label>{{process.processStatus}}</ion-label>
+    </div>
+    <div>
+      <ion-label>Révision : </ion-label>
+      <ion-label>{{process.revision}}</ion-label>
+    </div>
+  </div>
+
+
+  <div class="process-flow">
+    <app-operations-toolbar></app-operations-toolbar>
+    <div class="operations">
+      <app-process-operation *ngFor="let operation of process.operations" [operation]="operation">
+      </app-process-operation>
+    </div>
+  </div>
+</div>

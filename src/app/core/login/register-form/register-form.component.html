@@ -1,0 +1,32 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <ion-item>
+    <ion-label color="light" position="floating">Prénom <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input formControlName="firstname" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="light" position="floating">Nom <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input formControlName="lastname" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="light" position="floating">Service <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-select formControlName="teamId" multiple="true" placeholder="Choisir son équipe">
+      <ion-select-option *ngFor="let team of teams$ | async" [value]="team.id">{{team.name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label color="light" position="floating">Mot de passe <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input formControlName="password" type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="light" position="floating">Controle mot de passe <ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input formControlName="controlPassword" type="password"></ion-input>
+  </ion-item>
+  <ion-button block color="primary" type="submit" [disabled]="registerForm.invalid">
+    Valider
+  </ion-button>
+</form>

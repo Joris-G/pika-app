@@ -1,0 +1,10 @@
+<form [formGroup]="processForm" (submit)="submitProcess()">
+  <ion-item>
+    <ion-label>Article<ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input formControlName="article" placeholder="article du nouveau process" required></ion-input>
+  </ion-item>
+  <ion-button type="submit" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+</form>

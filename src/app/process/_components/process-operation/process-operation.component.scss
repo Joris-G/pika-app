@@ -1,0 +1,8 @@
+.disabled {
+  opacity: 0.5;
+  background-color: gray;
+}
+
+:host{
+  border-bottom: solid var(--ion-color-light);
+}

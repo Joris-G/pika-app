@@ -1,0 +1,27 @@
+<ion-item lines="none">
+  <ion-icon slot=start [ngClass]="{'disabled':(operation.suboperations.length <= 0)}" slot="start"
+    name="duplicate-outline" (click)="toggleSubObeVisibility()">
+  </ion-icon>
+  <ion-label>
+    {{operation.order}} - {{operation.name}} / {{operation.revision}}
+  </ion-label>
+  <ion-icon button slot="start" name="pencil-outline" (click)="switchEditModeClick()"></ion-icon>
+</ion-item>
+<ion-toolbar *ngIf="editable">
+  <ion-buttons slot="end">
+    <ion-button (click)="addSubOperationClick()">
+      <ion-icon slot="start" name="add"></ion-icon>
+      Ajouter sous-operation
+    </ion-button>
+    <ion-button (click)="removeOperationClick()">
+      <ion-icon slot="start" name="trash-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="infoClick()">
+      <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+      Info
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<div class="subOpeList" *ngIf="operation.suboperations.length > 0 && isSubOpeVisible">
+  <div class="subopes">coucou</div>
+</div>

@@ -1,0 +1,16 @@
+<!-- <div class="list-container"> -->
+<ion-list>
+  <ion-list-header>
+    <ion-label>Liste des process</ion-label>
+    <ion-button>See All</ion-button>
+  </ion-list-header>
+  <!-- <ion-menu-toggle *ngFor="let process of processes$ | async"> -->
+  <ion-item *ngFor="let process of processes$ | async" [routerLink]="['/process',process.id]"
+    routerLinkActive="active-link">
+    <!-- TODO voir pour ajouter un type article pour pouvoir découler la designation -->
+    <ion-label> {{process.id}}</ion-label>
+    <ion-label> {{process.article}}</ion-label>
+  </ion-item>
+  <!-- </ion-menu-toggle> -->
+</ion-list>
+<!-- </div> -->

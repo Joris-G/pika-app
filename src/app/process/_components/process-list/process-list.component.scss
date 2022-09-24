@@ -1,0 +1,13 @@
+.list-container{
+  padding: 10px;
+  border: var(--ion-color-primary) 1px solid;
+  border-radius: 10px;
+}
+
+ion-list ion-item:hover{
+  --background: var(--ion-color-primary);
+}
+
+.active-link{
+  --background: var(--ion-color-secondary);
+}
