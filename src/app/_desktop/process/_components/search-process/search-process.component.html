@@ -1,0 +1,12 @@
+<div class="search-bar" data-search-process>
+  <ion-searchbar #searchProcessInput color=light animated="true" placeholder="Rechercher un process"
+    show-clear-button="focus" clear-icon="trash-bin" (ionInput)="onInput($event)">
+  </ion-searchbar>
+</div>
+<ng-container class="search-results">
+  <ion-list>
+    <ion-item *ngFor="let processRes of processResults$ | async" [routerLink]="['/process',processRes.id]">
+      <ion-label>Awesome Label</ion-label>
+    </ion-item>
+  </ion-list>
+</ng-container>

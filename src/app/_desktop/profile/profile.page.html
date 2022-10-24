@@ -1,0 +1,21 @@
+<app-header title="Profil"></app-header>
+<ion-content>
+  <ion-split-pane contentId="main-content">
+
+    <ion-content id="menu-content" class="ion-padding">
+      <div class="profile-container">
+        <app-profile-avatar></app-profile-avatar>
+        <app-profile-resume></app-profile-resume>
+      </div>
+
+    </ion-content>
+
+
+    <ion-content id="main-content">
+      <div class="main-content">
+        <app-user-identity [user]="user"></app-user-identity>
+        <app-user-favorite-indicators></app-user-favorite-indicators>
+      </div>
+    </ion-content>
+  </ion-split-pane>
+</ion-content>

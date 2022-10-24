@@ -1,0 +1,21 @@
+<ion-chip id="profil-button" expand="block" fill="clear" shape="round" lines=none>
+  <ion-label>
+    {{username}}
+  </ion-label>
+  <ion-avatar>
+    <img alt="Silhouette of a person's head" src="assets/img/profile/jorisgrangier.jpg" />
+  </ion-avatar>
+</ion-chip>
+<ion-popover triggerAction="hover" arrow="false" trigger="profil-button" reference="trigger" side="bottom"
+  alignment="end" size="auto" [dismissOnSelect]="true">
+  <ng-template>
+    <ion-content class="">
+      <ion-item button lines=none [routerLink]="['/profile']">
+        <ion-icon name="create-outline" slot="start"></ion-icon>
+        <ion-label>Editer le profil</ion-label>
+      </ion-item>
+      <app-logout-button></app-logout-button>
+    </ion-content>
+
+  </ng-template>
+</ion-popover>

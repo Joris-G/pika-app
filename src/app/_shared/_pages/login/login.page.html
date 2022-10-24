@@ -1,0 +1,30 @@
+<ion-content>
+  <!-- TODO voir pour faire défiler des image de fond différentes -->
+  <div class="bg-img"></div>
+  <div class="main-content">
+    <div class="logo">
+      <img src="assets/icon/logo-pika-composites-tolerie.png" alt="logo">
+    </div>
+    <div class="msg">
+      <ion-text color="light">Bienvenue</ion-text>
+    </div>
+
+    <swiper #swiper [slidesPerView]="1" [spaceBetween]="50" [centeredSlides]="true" (swiper)="onSwiper()"
+      (slideChange)="onSlideChange()" [allowTouchMove]="false">
+      <ng-template swiperSlide>
+        <div class="slide-content">
+          <app-login-form></app-login-form>
+          <ion-button expand="block" fill="clear" shape="round" color="danger" (click)="swiper.swiperRef.slideNext()">
+            Créer un compte
+          </ion-button>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <!-- <div class="test">TEST 2</div> -->
+        <app-register-form></app-register-form>
+      </ng-template>
+    </swiper>
+
+  </div>
+
+</ion-content>

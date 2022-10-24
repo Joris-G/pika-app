@@ -1,0 +1,19 @@
+<form [formGroup]="operationForm" (ngSubmit)="submitOperation()">
+  <ion-item>
+    <ion-label position="floating">Désignation opération<ion-text color="danger">*</ion-text>
+    </ion-label>
+    <ion-input required formControlName="name" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Position</ion-label>
+    <ion-select formControlName="order" placeholder="avant : ">
+      <!-- <ion-select-option [value]="process?.operations.length + 1">suivant</ion-select-option> -->
+      <ion-select-option *ngFor="let ope of process?.operations" [value]="ope.order">
+        {{ope.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button block color="primary" type="submit" [disabled]="operationForm.invalid">
+    Créer opération
+  </ion-button>
+</form>

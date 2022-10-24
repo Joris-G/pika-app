@@ -1,19 +1,30 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomeMobilePage } from './home-mobile/home-mobile.page';
+import { HomePage } from './home/home';
+import { AuthGuard } from '../_services/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeMobilePage,
+    component: HomePage,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin',
-    loadChildren: () => import('../core/admin/admin.module').then(m => m.AdminPageModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminPageModule)
+  },
+  {
+    path: 'process',
+    loadChildren: () => import('./process/process.module').then(m => m.ProcessPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     loadChildren: () => import('../_shared/_pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
   },
   {
     path: '',
@@ -32,4 +43,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppMobileRoutingModule { }
+export class AppRoutingModule { }

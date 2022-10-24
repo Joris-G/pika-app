@@ -1,0 +1,18 @@
+<!-- Faire un panneau latéral avec la liste des process puis panneau centrale avec le process en détails -->
+<ion-split-pane content-id="menu-content">
+  <ion-menu content-id="menu-content" menuId="menu-content" side="start" type="push">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-item button color=secondary (click)="newProcessClick()">
+          <ion-icon slot="start" name="add"></ion-icon>
+          <ion-label> Créer un process</ion-label>
+        </ion-item>
+        <app-search-process></app-search-process>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <app-process-list></app-process-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="menu-content"></ion-router-outlet>
+</ion-split-pane>
